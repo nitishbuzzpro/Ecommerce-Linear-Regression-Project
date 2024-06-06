@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ecommerce - Yearly Amount Spent predictor</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 40vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .container {
+            text-align: center;
+            width: 120%;
+            max-width: 720px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+        form {
+            margin-top: 10px;
+        }
+        form label {
+            display: block;
+            margin-bottom: 3px;
+            font-weight: bold;
+        }
+        form input[type="text"] {
+            width: calc(100% - 18px);
+            padding: 6px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        form input[type="submit"] {
+            width: calc(100% - 18px);
+            padding: 8px;
+            border: none;
+            border-radius: 3px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Ecommerce - Yearly Amount Spent predictor</h1>
+    <p>By: Nitish Adhikari</p>
+    <p>Contact: nitishbuzzpro@gmail.com (+91 9650740295)</p>
+    <p>LinkedIn: <a href="https://www.linkedin.com/in/nitish-adhikari-6b2350248">https://www.linkedin.com/in/nitish-adhikari-6b2350248</a></p>
+    <p>An Ecommerce company that sells clothing online but they also have in-store style and clothing advice sessions. Customers come in to the store, have sessions/meetings with a personal stylist, then they can go home and order either on a mobile app or website for the clothes they want. The company is trying to decide whether to focus their efforts on their mobile app experience or their website.</p>
+    <p>Avg. Session Length: Average session of in-store style advice sessions.</p>
+    <p>Time on App: Average time spent on App in minutes</p>
+    <p>Time on Website: Average time spent on Website in minutes</p>
+    <p>Length of Membership: How many years the customer has been a member.</p>
+    <p>Predict : predicted amount a customer is likely to spent in a year, given above behaviour parameters</p>
+    
+    <form method="post" action="/predict">
+        <label for="Avg_Session_Length">Avg_Session_Length(min)</label><br>
+        <input type="text" id="Avg_Session_Length" name="Avg_Session_Length" required><br>
+
+        <label for="Time_on_App">Time_on_App(min)</label><br>
+        <input type="text" id="Time_on_App" name="Time_on_App" required><br>
+
+        <label for="Time_on_Website">Time_on_Website(min)</label><br>
+        <input type="text" id="Time_on_Website" name="Time_on_Website" required><br>
+        
+        <label for="Length_of_Membership">Length_of_Membership(years)</label><br>
+        <input type="text" id="Length_of_Membership" name="Length_of_Membership" required><br>
+
+        <input type="submit" value="Predict">
+    </form>
+    {% if result %}
+        <p>Predicted Yearly amount spent is: ${{result}}</p>
+    {% endif %}
+</div>
+
+</body>
+</html>
